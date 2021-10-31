@@ -32,63 +32,63 @@ historyModal.addEventListener("click", closeHistory);
 //remove from history to watchlist 
 function watchAgain (event) {
   let target = event.target;
-  let removeTarget = target.parentElement.parentElement;
-  let targetTitle = removeTarget.querySelector(".MyCardButton")
-  
-  let title = target.parentElement.parentElement.querySelector(".MyCardButton");
-  let Genre = target.parentElement.parentElement.querySelector(".Genre");
-  let Plot = target.parentElement.parentElement.querySelector(".Plot");
-  let Writer = target.parentElement.parentElement.querySelector(".Writer");
-  let Photo = target.parentElement.parentElement.querySelector(".SavedMovieImage");
-  let Actors = target.parentElement.parentElement.querySelector(".Actors");
-  let Runtime = target.parentElement.parentElement.querySelector(".Runtime");
-  let Released = target.parentElement.parentElement.querySelector(".Released");
-   
-
-
-  for( var i = 0; i < movieHistoryArray.length; i++){ 
+  if(target.classList.contains("watchAgainBtn"))
+  {
+    let removeTarget = target.parentElement.parentElement;
+    let targetTitle = removeTarget.querySelector(".MyCardButton")
     
-    if ( movieHistoryArray[i] === targetTitle.innerText) { 
-      movieTitleArray.push(movieHistoryArray[i]);
-      movieHistoryArray.splice(i, 1); 
+    let title = target.parentElement.parentElement.querySelector(".MyCardButton");
+    let Genre = target.parentElement.parentElement.querySelector(".Genre");
+    let Plot = target.parentElement.parentElement.querySelector(".Plot");
+    let Writer = target.parentElement.parentElement.querySelector(".Writer");
+    let Photo = target.parentElement.parentElement.querySelector(".SavedMovieImage");
+    let Actors = target.parentElement.parentElement.querySelector(".Actors");
+    let Runtime = target.parentElement.parentElement.querySelector(".Runtime");
+    let Released = target.parentElement.parentElement.querySelector(".Released");
+    
+    for( var i = 0; i < movieHistoryArray.length; i++){ 
+      
+      if ( movieHistoryArray[i] === targetTitle.innerText) { 
+        movieTitleArray.push(movieHistoryArray[i]);
+        movieHistoryArray.splice(i, 1); 
+      }
     }
+    movieCard = `<div class="myMovieCard col-lg-3 col-md-4 col-sm-12 justify-content-center">
+                          <div class="row justify-content-center SavedMovieImage" style="padding: 10px;">
+                            ${Photo.innerHTML}
+                          </div>
+                          <div class="row justify-content-center">
+                            <div class="col">
+                              <button class="MyCardButton">
+                                ${title.innerText}
+                              </button>
+                            </div>
+                          </div>
+                          <div class="row justify-content-center Genre">
+                          ${Genre.innerText}
+                          </div>
+                          <div class="row justify-content-center Runtime">
+                          ${Runtime.innerText}
+                          </div>
+                          <div class="row justify-content-end" style="padding-right: 15px;">
+                            <div class="col-2 buttondiv">
+                              <button class="myWRButton MyRemove"></button>
+                            </div>
+                            <div class="col-2 buttondiv">
+                              <button class="myWRButton MyWatched"></button>
+                            </div>
+                          </div>
+                          <p hidden class="Writer">${Writer.innerText}</p>
+                          <p hidden class="Plot">${Plot.innerText}</p>
+                          <p hidden class="Actors">${Actors.innerText}</p>
+                          <p hidden class="Released">${Released.innerText}</p>
+                          
+                    </div>`;
+
+      myMovieList.innerHTML += movieCard;
+      removeTarget.remove();
+      movieCard ="";
   }
-  movieCard = `<div class="myMovieCard col-lg-3 col-md-4 col-sm-12 justify-content-center">
-                        <div class="row justify-content-center SavedMovieImage" style="padding: 10px;">
-                          ${Photo.innerHTML}
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col">
-                            <button class="MyCardButton">
-                              ${title.innerText}
-                            </button>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center Genre">
-                        ${Genre.innerText}
-                        </div>
-                        <div class="row justify-content-center Runtime">
-                        ${Runtime.innerText}
-                        </div>
-                        <div class="row justify-content-end" style="padding-right: 15px;">
-                          <div class="col-2 buttondiv">
-                            <button class="myWRButton MyRemove"></button>
-                          </div>
-                          <div class="col-2 buttondiv">
-                            <button class="myWRButton MyWatched"></button>
-                          </div>
-                        </div>
-                        <p hidden class="Writer">${Writer.innerText}</p>
-                        <p hidden class="Plot">${Plot.innerText}</p>
-                        <p hidden class="Actors">${Actors.innerText}</p>
-                        <p hidden class="Released">${Released.innerText}</p>
-                        
-                  </div>`;
-
-    myMovieList.innerHTML += movieCard;
-    removeTarget.remove();
-    movieCard ="";
-
 }
 
 // veiw history
