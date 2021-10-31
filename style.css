@@ -1,0 +1,646 @@
+.body {
+  background-color: rgba(90, 65, 0, 1);
+  color: rgba(56, 45, 22, 1);
+}
+
+.container {
+  margin: auto;
+}
+
+.row {
+  color: rgba(56, 45, 22, 1);
+  margin: 10px;
+}
+.col {
+  color: rgba(56, 45, 22, 1);
+  overflow-y: auto;
+}
+
+
+/*Movies style*/
+
+.addMovieCol{
+  margin: auto;
+  color: rgba(143, 110, 25, 1)
+}
+
+.Genre {
+  margin: auto !important;
+}
+.MyCardButton {
+  background-color: rgba(143, 110, 25, 1);
+  color:rgba(56, 45, 22, 1) !important;
+  font-size: 24px;
+  font-weight: bolder;
+  display: flex;
+  margin: auto;
+  border: none;
+}
+
+.watchAgainBtn{
+  background-color: rgba(143, 110, 25, 1);
+  color:rgba(56, 45, 22, 1);
+  font-size: 16px;
+  margin: none;
+  border: solid 1 px rgba(56, 45, 22, 1)!important;
+}
+.watchAgainBtn:hover{
+  font-size: 20px;
+}
+
+.MyCardButton:hover{
+  color:rgba(90, 65, 0, 1);
+}
+
+.movieImage{
+  display: block;
+  margin: auto;
+  max-height: 250px;
+  max-width: 150px;
+  filter: drop-shadow(10px 15px 8px rgba(0, 0, 0, 0.4));
+  
+}
+
+.modalImage{
+  display: block;
+  margin: auto;
+  max-height: 250px;
+  max-width: 150px;
+  filter: drop-shadow(0px 15px 8px rgba(0, 0, 0, 0.4));
+}
+.searhForMovie{
+  border: none; 
+  color:rgba(143, 110, 25, 1);
+  background-color: rgba(56, 45, 22, 1);
+  filter: drop-shadow(0px 15px 8px rgba(0, 0, 0, 0.4));
+}
+
+.movieHistory{
+  bordeR:none;
+  color: rgba(143, 110, 25, 1);
+  background-color: rgba(56, 45, 22, 1);
+  filter: drop-shadow(0px 15px 8px rgba(0, 0, 0, 0.4));
+}
+.movieHistory:hover{
+  font-size: 18px;
+  cursor: pointer;
+}
+.searhForMovie:hover{
+font-size: 18px;
+ cursor: pointer;
+}
+
+.movieImageDiv{
+  padding-top: 10px;
+}
+
+.myMovieCard {
+  margin:0 10px 10px 10px; 
+  background-color: rgba(143, 110, 25, 1); 
+  color: rgba(56, 45, 22, 1) !important;
+  max-width: 240px !important;
+  min-width: 240px !important;
+  filter: drop-shadow(10px 15px 8px rgba(0, 0, 0, 0.5));
+
+}
+
+.titleText {
+  color: rgba(143, 110, 25, 1);
+  height: unset; 
+  text-align: center;
+  font-size: 24px;
+
+}
+
+.genreText {
+  color:rgba(143, 110, 25, 1);
+  height: unset; 
+  text-align: center;
+}
+
+.SearchMovie {
+  background-color: rgba(143, 110, 25, 1);
+  border: 2px solid rgba(56, 45, 22, 1);
+  color: rgba(56, 45, 22, 1);
+  padding: unset;
+  border-right: none;
+  border-radius: 0;
+}
+
+.SearchMovie:focus{
+  outline: none;
+}
+
+
+.SearchMovie::placeholder {
+  color: rgba(56, 45, 22, 1)
+}
+
+.myAddMovieBtn {
+  background-image: url(../images/Images/Add.PNG);
+  background-size: 100% 100%;
+  margin-left: 40px;
+}
+
+.myAddMoviebtn:hover{
+  height: 30px;
+  width: 30px;
+}
+
+.mySearchBtn {
+  border: solid 2px rgba(56, 45, 22, 1);
+  border-left: none;
+  outline: none;
+  box-shadow: 4px rgb(48, 45, 45);
+  background-color: rgba(143, 110, 25, 1);
+  padding: unset;
+}
+
+.mySearchBtn:hover{
+  cursor: pointer;
+  background-color:rgba(143, 106, 25, 0.671)
+}
+
+
+
+/*MODAL*/
+.myHistorybackground {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 75px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.myHistoryList{
+  position: relative!important;
+  background-color: rgba(56, 45, 22, 1)!important;
+  color: rgba(143, 110, 25, 1)!important;
+  margin: auto!important;
+  padding: 20px;
+  width: 80% !important;
+  min-width: 260px !important;
+  box-shadow: 15px 15px 0 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.3)!important;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 75px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+hr{
+  border: solid 3px rgba(143, 110, 25, 1)
+}
+
+.modal-content {
+  position: relative!important;
+  background-color: rgba(56, 45, 22, 1)!important;
+  color: rgba(143, 110, 25, 1)!important;
+  margin: auto!important;
+  padding: 0;
+  width: 50% !important;
+  min-width: 260px !important;
+  box-shadow: 15px 15px 0 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.3)!important;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+      top: -300px;
+      opacity: 0
+  }
+
+  to {
+      top: 0;
+      opacity: 1
+  }
+}
+
+@keyframes animatetop {
+  from {
+      top: -300px;
+      opacity: 0
+  }
+
+  to {
+      top: 0;
+      opacity: 1
+  }
+}
+.modalTextHeading {
+  color: rgba(143, 110, 25, 1) !important;
+  margin-bottom: none;
+  text-decoration: underline;
+}
+
+.modalText {
+  color: rgba(143, 110, 25, 1) !important;
+  margin-bottom: none;
+}
+/* The Close Button */
+.closeModal {
+  color:rgba(143, 110, 25, 1) !important;
+  float: right !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  height: 20px !important; 
+  width: 20px !important; 
+  margin: 15px 45px 15px 0 !important; 
+  background-image: url(../images/Images/closeBtn.PNG); 
+  background-size: 20px 20px !important;
+  background-repeat: no-repeat;
+  transition-duration: 0,5s;
+} 
+
+.myModalPhoto{
+  min-width: 240px !important;
+}
+
+  .closeModal:hover,
+  .closeModal:focus {
+      background-image: url(../images/Images/closehover.PNG);
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+.modal-body {
+  padding: 2px 16px;
+  background-color: rgba(56, 45, 22, 1) !important;
+  color: rgba(143, 110, 25, 1) !important;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: rgba(56, 45, 22, 1) !important;
+  color: rgba(143, 110, 25, 1) !important;
+}
+
+
+
+
+
+
+
+
+
+/* post it styles */
+.postitText {
+    height: 150px;
+}
+.postitTextP {
+    color:rgba(56, 45, 22, 1);
+    max-width: 100%;
+    height: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.flagged {
+    background-image: url(../images/Images/important.PNG);
+    background-size: 25px 25px;
+}
+
+.social {
+    background-image: url(../images/Images/Social.PNG);
+    background-size: 25px 25px;
+}
+.work {
+    background-image: url(../images/Images/work.PNG);
+    background-size: 25px 25px;
+
+}
+.training {
+    background-image: url(../images/Images/training.PNG);
+    background-size: 25px 25px;
+
+}
+
+.myPostit {
+  background-image: url(../images/Images/Skärmklipp.PNG);
+  max-width: 300px;
+  min-width: 250px;
+  min-height: 250px;
+  background-size: 100% 100%;
+  filter: drop-shadow(-10px -15px 8px rgba(0, 0, 0, 0.25));
+  color: rgba(56, 45, 22, 1);
+  margin: 15px 10px;
+  padding: 5px;
+}
+
+.myAddPostit {
+  background-image: url(../images/Images/Skärmklipp.PNG);
+  max-width: 300px;
+  min-width: 250px;
+  min-height: 250px;
+  background-size: 100% 100%;
+  filter: drop-shadow(-10px -15px 8px rgba(0, 0, 0, 0.25));
+  color: rgba(56, 45, 22, 1);
+  margin: 15px 10px;
+  padding-top: 5px;
+}
+
+.myCategoryPic{
+    height: 25px; 
+    width: 25px;
+    border: none; 
+    margin: none;
+
+}
+.myDatetime {
+  background-color: rgba(143, 110, 25, 1);
+  color: rgba(56, 45, 22, 1);
+  border: none;
+}
+
+.myTextarea {
+  background-color: rgba(143, 110, 25, 1);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  max-height: 90px;
+  min-height: 90px;
+}
+.myEditTextarea {
+  background-color: rgba(143, 110, 25, 1);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-height: 150px;
+  min-height: 150px;
+}
+
+
+/* button styles  */
+
+.myButton {
+    border: none;
+    outline: none;
+    box-shadow: 4px rgb(48, 45, 45) !important;
+    background-color: rgba(143, 110, 25, 1);
+    height: 25px;
+    width: 25px;
+  }
+
+.myWRButton {
+    border: none;
+    outline: none;
+    box-shadow: 4px rgb(48, 45, 45) !important;
+    background-color: rgba(143, 110, 25, 1);
+    min-height: 25px;
+    max-height: 25px;
+    min-width: 25px;
+    max-width: 25px;
+  }
+  
+
+.myAddbtn {
+  background-image: url(../images/Images/Add.PNG);
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.myAddbtn:hover{
+    height: 30px;
+    width: 30px;
+}
+.mySavebtn {
+  background-image: url(../images/Images/Save.PNG);
+  transition-duration: 1,5s;
+  background-size: 100% 100%;
+  filter: drop-shadow(-4px -5px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+}
+
+.mySavebtn:hover{
+  height: 30px;
+  width: 30px;
+}
+
+.myDeleteBtn {
+    background-image: url(../images/Images/Delete.PNG);
+    background-size: 100% 100%;
+    transition-duration: 1,5s;
+    filter: drop-shadow(-4px -5px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+}
+.myDeleteBtn:hover{
+  height: 30px;
+  width: 30px;
+}
+.myEditBtn {
+    background-image: url(../images/Images/Edit.PNG);
+    background-size: 100% 100%;
+    transition-duration: 1,5s;
+    filter: drop-shadow(-4px -5px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+}
+.myEditBtn:hover{
+  height: 30px;
+  width: 30px;
+}
+
+.SavedMovieImage:hover {
+ cursor: pointer;
+ opacity: 0.5;
+}
+
+.MyRemove {
+  background-image: url(../images/Images/Remove.PNG);
+  background-size: 25px 25px;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+}
+.MyRemove:hover{
+  background-image: url(../images/Images/hoverRemove.PNG)
+}
+.MyWatched {
+  background-image: url(../images/Images/Watched.PNG);
+  background-size: 25px 25px;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+}
+.MyWatched:hover{
+  background-image: url(../images/Images/hoverWatched.PNG)
+}
+
+.buttondiv {
+  height: 25px;
+  width: 25px;
+}
+
+.myNavbtn {
+  margin-top: 10px;
+  color: #382D16;
+  background-color: #71540A;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 150px;
+  box-shadow: rgba(0, 0, 0, 0.25) 6px 6px;
+  outline: none;
+  border: 1px solid #382D16;
+  border-left: 0;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.myNavbtn:hover {
+  font-size: 30px;
+}
+
+.myNavClosebtn {
+  margin-top: 10px;
+    color: #8F6E19;
+    background-color: #382D16;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 150px;
+    box-shadow: rgba(0, 0, 0, 0.25) 6px 6px;
+    outline: none;
+    border: 1px solid #71540A;
+    border-left: 0;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* scroll functions scrollbar hide*/ 
+.example {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+.sideNavHeight{
+  height: 65px;
+}
+/* My sidenav */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  background-color: #8F6E19;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  color: #382D16;
+  border-top-right-radius: 25px; 
+  border-bottom-right-radius: 25px; 
+  border:rgba(56, 45, 22, 1) solid 2px;
+  border-left: none;
+}
+
+  .sidenav button:hover {
+      background-color: #5A4100;
+  }
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+      padding-top: 15px;
+  }
+
+      .sidenav a {
+          font-size: 18px;
+      }
+}
+
+
+
+
+
+
+
+
+/* dum skit */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+
+.frontul {
+  position: relative;
+  display: flex;
+  margin-top: 10%;
+}
+.frontulline {
+  position: relative;
+  display: flex;
+}
+
+.frontli {
+  list-style: none;
+  marker: unset;
+}
+
+.frontlabel {
+  position: relative;
+}
+
+.frontinput[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  z-index: 100;
+}
+
+.frontdiv {
+  position: relative;
+  height: 100%;
+  min-width: 60px;
+  background: rgba(90, 65, 0, 1);
+  color: rgba(56, 45, 22, 1);
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 46px;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 20px;
+  box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+input[type="checkbox"]:checked ~ div {
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
+    inset 4px 4px 6px rgba(0, 0, 0, 0.2);
+  color: rgba(143, 110, 25, 1);
+  text-shadow: 0 0 15px rgba(143, 110, 25, 1), 0 0 25px rgba(143, 110, 25, 1);
+  animation: glow 2s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
