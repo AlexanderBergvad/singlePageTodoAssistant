@@ -11,10 +11,13 @@ const historyModal = document.querySelector(".myHistorybackground");
 const HistoryList = document.querySelector(".myHistoryList");
 const myModal = document.querySelector(".modal-content");
 const Modal = document.querySelector(".modal");
+const Grade = document.querySelector(".mygrademodal")
 
 let movieTitleArray = [];
 let movieHistoryArray = [];
 let movieCard = "";
+let movieRating = "";
+let movieCardid = "";
 
 Modal.addEventListener("click", closeModal)
 myAddMovieList.addEventListener("click", addMovieToList)
@@ -26,6 +29,7 @@ HistoryList.addEventListener("click", openModal);
 myMovieList.addEventListener("click", openModal); 
 myMovieList.addEventListener("click", removeMovie);
 historyModal.addEventListener("click", closeHistory);
+Grade.addEventListener("click", setGrade);
 
 
 
@@ -45,6 +49,7 @@ function watchAgain (event) {
     let Actors = target.parentElement.parentElement.querySelector(".Actors");
     let Runtime = target.parentElement.parentElement.querySelector(".Runtime");
     let Released = target.parentElement.parentElement.querySelector(".Released");
+    let ID = target.parentElement.parentElement.querySelector(".id");
     
     for( var i = 0; i < movieHistoryArray.length; i++){ 
       
@@ -82,6 +87,7 @@ function watchAgain (event) {
                           <p hidden class="Plot">${Plot.innerText}</p>
                           <p hidden class="Actors">${Actors.innerText}</p>
                           <p hidden class="Released">${Released.innerText}</p>
+                          <p hidden class="id">${ID.innerText}</p>
                           
                     </div>`;
 
@@ -153,6 +159,7 @@ async function Searchclick() {
                             <p hidden class="Runtime">${MovieData.Runtime}</p>
                             <p hidden class="Writer">${MovieData.Writer}</p>
                             <p hidden class="Released">${MovieData.Released}</p>
+                            <p hidden class="id">${MovieData.imdbID}</p>
                           </div>
                         </div>
                       </div>
@@ -192,6 +199,7 @@ function addMovieToList(event){
   const Actors = myAddMovieList.querySelector(".Actors");
   const Runtime = myAddMovieList.querySelector(".Runtime");
   const Released = myAddMovieList.querySelector(".Released");
+  const ID = myAddMovieList.querySelector(".id")
 
   let target = event.target;
   if(target.classList.contains("myAddMovieBtn")){
@@ -224,6 +232,7 @@ function addMovieToList(event){
                         <p hidden class="Plot">${Plot.innerText}</p>
                         <p hidden class="Actors">${Actors.innerText}</p>
                         <p hidden class="Released">${Released.innerText}</p>
+                        <p hidden class="id">${ID.innerText}</p>
                         
                   </div>`
                      
@@ -246,6 +255,7 @@ function openModal(event){
   let Actors = "";
   let Runtime = ""; 
   let Released = "";
+  let ID = "";
   
   let btntarget = event.target;
   if(btntarget.classList.contains("MyCardButton") || btntarget.classList.contains("movieImage"))
@@ -260,6 +270,7 @@ function openModal(event){
       Actors = btntarget.parentElement.parentElement.parentElement.querySelector(".Actors");
       Runtime = btntarget.parentElement.parentElement.parentElement.querySelector(".Runtime");
       Released = btntarget.parentElement.parentElement.parentElement.querySelector(".Released");
+      ID = btntarget.parentElement.parentElement.parentElement.querySelector(".id");
     }
     else if(btntarget.classList.contains("movieImage"))
     {
@@ -272,6 +283,7 @@ function openModal(event){
       Actors = btntarget.parentElement.parentElement.querySelector(".Actors");
       Runtime = btntarget.parentElement.parentElement.querySelector(".Runtime");
       Released = btntarget.parentElement.parentElement.querySelector(".Released");
+      ID = btntarget.parentElement.parentElement.querySelector(".id");
     }
     let modalcontent = "";
        modalcontent =   `
@@ -333,6 +345,7 @@ function openModal(event){
                        </div>
                        <div class="col-lg-4 col-md-12 col-sm-12">
                            <p class="WrittenBy modalText">${Writer.innerText}</p>
+                           <p hidden class="id">${ID.innerText}</p>
                        </div>
                    </div>
                </div>
@@ -366,19 +379,87 @@ function closeModal(event){
   }
 }
 
+function OpenGradeModal() {
+  Grade.style.display = "flex";
+}
+function setGrade (event) {
+   let target = event.target;
+   const movieTograde = HistoryList.querySelector("#" + movieCardid);
+   const graderow = movieTograde.querySelector(".graderow");
+   console.log(graderow);
+   console.log(target);
+   console.log(movieTograde);
+
+   if(target.classList.contains("star1"))
+   {
+     graderow.innerHTML = 
+     `<div class="col-2">
+     <span class="gradestar">★</span>
+   </div>`
+   }
+   if(target.classList.contains("star2"))
+   {
+    for(let i = 0; i < 2; i++)
+    {
+      graderow.innerHTML += 
+      `<div class="col-2">
+        <span class="gradestar">★</span>
+      </div>`
+    }
+   }
+   if(target.classList.contains("star3"))
+   {
+    for(let i = 0; i < 3; i++)
+    {
+      graderow.innerHTML += 
+      `<div class="col-2">
+        <span class="gradestar">★</span>
+      </div>`
+    }
+   }
+   if(target.classList.contains("star4"))
+   {
+    for(let i = 0; i < 4; i++)
+    {
+      graderow.innerHTML += 
+      `<div class="col-2">
+        <span class="gradestar">★</span>
+      </div>`
+    }
+   }
+   if(target.classList.contains("star5"))
+   {
+    for(let i = 0; i < 5; i++)
+    {
+      graderow.innerHTML += 
+      `<div class="col-2">
+        <span class="gradestar">★</span>
+      </div>`
+    }
+   }
+   let inputbtn = Grade.querySelector(".star1");
+   inputbtn.checked = false;
+   let inputbtn2 = Grade.querySelector(".star2");
+   inputbtn2.checked = false;
+   let inputbtn3 = Grade.querySelector(".star3");
+   inputbtn3.checked = false;
+   let inputbtn4 = Grade.querySelector(".star4");
+   inputbtn4.checked = false;
+   let inputbtn5 = Grade.querySelector(".star5");
+   inputbtn5.checked = false;
+   Grade.style.display = "none";
+}
 //remove movie from list to history
 function removeMovie(event) {
   let target = event.target;
   let removeTarget = target.parentElement.parentElement.parentElement;
   let targetTitle = removeTarget.querySelector(".MyCardButton")
   
-
   if(target.classList.contains("MyRemove"))
   {
     for( var i = 0; i < movieTitleArray.length; i++){ 
     
       if ( movieTitleArray[i] === targetTitle.innerText) { 
-  
         movieTitleArray.splice(i, 1); 
       }
     }
@@ -395,9 +476,10 @@ function removeMovie(event) {
       let Actors = target.parentElement.parentElement.parentElement.querySelector(".Actors");
       let Runtime = target.parentElement.parentElement.parentElement.querySelector(".Runtime");
       let Released = target.parentElement.parentElement.parentElement.querySelector(".Released");
+      let ID = target.parentElement.parentElement.parentElement.querySelector(".id");
     
 
-              movieCard =`<div class="myMovieCard col-lg-3 col-md-4 col-sm-12 justify-content-center">
+              movieCard =`<div id="${ID.innerText}"class="myMovieCard col-lg-3 col-md-4 col-sm-12 justify-content-center" >
               <div class="row justify-content-center SavedMovieImage" style="padding: 10px;">
                 ${Photo.innerHTML}
               </div>
@@ -414,6 +496,11 @@ function removeMovie(event) {
               <div class="row justify-content-center Runtime">
               ${Runtime.innerText}
               </div>
+              <div class="grade">
+                <div class="row justify-content-center graderow">
+                  
+                </div>
+              </div>
               <div class="row justify-content-end">
                   <button class=" myButton watchAgainBtn">Watch again</button>
               </div>
@@ -421,6 +508,7 @@ function removeMovie(event) {
               <p hidden class="Plot">${Plot.innerText}</p>
               <p hidden class="Actors">${Actors.innerText}</p>
               <p hidden class="Released">${Released.innerText}</p>
+              <p hidden class="id">${ID.innerText}</p>
               
           </div>`
   
@@ -433,6 +521,8 @@ function removeMovie(event) {
         movieTitleArray.splice(i, 1); 
       }
     }
+    movieCardid = ID.innerText;
+    OpenGradeModal();
     removeTarget.remove();
   }
 }

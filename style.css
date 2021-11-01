@@ -16,7 +16,6 @@
   overflow-y: auto;
 }
 
-
 /*Movies style*/
 
 .addMovieCol{
@@ -50,7 +49,8 @@
 }
 
 .MyCardButton:hover{
-  color:rgba(90, 65, 0, 1);
+  font-size: 28px;
+  text-decoration: underline;
 }
 
 .movieImage{
@@ -162,9 +162,86 @@ font-size: 18px;
   background-color:rgba(143, 106, 25, 0.671)
 }
 
-
+/*graded movie star*/
+.gradestar {
+  content: '\f005'; 
+  font-family: fontAwesome;
+  font-size: 25px;
+  color:rgba(56, 45, 22, 1);
+}
 
 /*MODAL*/
+.mygrademodal {
+  padding-top: 30%;
+  display: none; 
+  position: fixed; 
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.mygrademodal p{
+  color: rgba(143, 110, 25, 1);
+  position: fixed;
+  font-size: 50px;
+  top: 35%;
+}
+
+.mygrade-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateY(180deg);
+  display: flex;
+  background-color: rgba(56, 45, 22, 1)!important; 
+}
+
+.mygrade-content input{
+  display: none;
+}
+.mygrade-content label{
+   display: block;
+   cursor: pointer;
+   width: 60px; 
+   background:rgba(56, 45, 22, 1);
+}
+.mygrade-content label:before{
+  content: '\f005'; 
+  font-family: fontAwesome;
+  position: relative;
+  display: block;
+  font-size: 60px;
+  color:rgba(255, 255, 255, 0.05);
+}
+.mygrade-content label:after{
+  content: '\f005'; 
+  font-family: fontAwesome;
+  position: absolute;
+  display: block;
+  font-size: 60px;
+  color: rgba(143, 110, 25, 1);
+  top: 0;
+  opacity: 0;
+  transition: .2s;
+  text-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.mygrade-content label:hover:after,
+.mygrade-content label:hover ~ label:after,
+.mygrade-content input:checked ~ label:after{
+  opacity: 1;
+}
+
+
+
+
+
+
+
 .myHistorybackground {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
