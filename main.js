@@ -30,6 +30,8 @@ myMovieList.addEventListener("click", openModal);
 myMovieList.addEventListener("click", removeMovie);
 historyModal.addEventListener("click", closeHistory);
 Grade.addEventListener("click", setGrade);
+document.addEventListener("keydown", Searchclick)
+
 
 
 
@@ -125,7 +127,19 @@ function viewSearch(){
 }
 
 // search for movie, api 
-async function Searchclick() {
+async function Searchclick(event) {
+  let target = event.target;
+  console.log(target)
+  if(target.classList.contains("mySearchBtn") || event.type === "keydown" && event.key === "Enter" )
+  {
+    if(searchTxt.value !== "")
+    {
+      apiSearch();
+    }
+  }  
+}
+
+async function apiSearch() {
 
   async function getMovie() {
     let edited = searchTxt.value.trim().replaceAll(" ", "+");
