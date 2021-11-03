@@ -69,6 +69,7 @@
   max-width: 150px;
   filter: drop-shadow(0px 15px 8px rgba(0, 0, 0, 0.4));
 }
+
 .searhForMovie{
   border: none; 
   color:rgba(143, 110, 25, 1);
@@ -187,8 +188,8 @@ font-size: 18px;
 .mygrademodal p{
   color: rgba(143, 110, 25, 1);
   position: fixed;
-  font-size: 50px;
-  top: 35%;
+  font-size: 40px;
+  top: 23%;
 }
 
 .mygrade-content {
