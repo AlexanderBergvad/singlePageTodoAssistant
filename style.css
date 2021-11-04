@@ -62,14 +62,6 @@
   
 }
 
-.modalImage{
-  display: block;
-  margin: auto;
-  max-height: 250px;
-  max-width: 150px;
-  filter: drop-shadow(0px 15px 8px rgba(0, 0, 0, 0.4));
-}
-
 .searhForMovie{
   border: none; 
   color:rgba(143, 110, 25, 1);
@@ -307,6 +299,8 @@ hr{
   animation-duration: 0.4s
 }
 
+
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
   from {
@@ -357,7 +351,10 @@ hr{
 } 
 
 .myModalPhoto{
+  display: block;
+  margin: auto;
   min-width: 240px !important;
+  max-width: 240px !important;
 }
 
   .closeModal:hover,
@@ -655,13 +652,4 @@ hr{
       background-color: #5A4100;
   }
 
-@media screen and (max-height: 450px) {
-  .sidenav {
-      padding-top: 15px;
-  }
-
-      .sidenav a {
-          font-size: 18px;
-      }
-}
 

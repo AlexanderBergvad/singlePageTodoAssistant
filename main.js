@@ -252,11 +252,10 @@ function addMovieToList(event){
                      
                myMovieList.innerHTML += movieCard;
                 movieTitleArray.push(title.innerText);
-
+                searchTxt.value = "";
+                myAddMovieList.innerHTML = "";
+                movieCard = "";
   }
-  searchTxt.value = "";
-  myAddMovieList.innerHTML = "";
-  movieCard = "";
 }
 
 //get movie modal
@@ -867,13 +866,6 @@ function screenShowing(event){
     containerTodo.hidden = true;
     containerFront.hidden = true;
     containerMovies.hidden = false;
-    closeNav();
-  }
-  else if(clickedTarget.classList.contains("Series"))
-  {
-    containerTodo.hidden = true;
-    containerFront.hidden = true;
-    containerMovies.hidden = true;
     closeNav();
   }
   else if(clickedTarget.classList.contains("Home"))
