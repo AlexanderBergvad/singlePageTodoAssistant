@@ -399,9 +399,7 @@ function setGrade (event) {
    let target = event.target;
    const movieTograde = HistoryList.querySelector("#" + movieCardid);
    const graderow = movieTograde.querySelector(".graderow");
-   console.log(graderow);
-   console.log(target);
-   console.log(movieTograde);
+
 
    if(target.classList.contains("star1"))
    {
